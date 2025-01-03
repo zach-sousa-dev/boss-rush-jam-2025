@@ -332,7 +332,7 @@ MonoBehaviour:
   tiltTransform: {fileID: 1948833262}
   spinTransform: {fileID: 1458929073}
   spinSpeed: 10
-  maxVelocity: 0
+  maxVelocity: 100
   rb: {fileID: 510466524}
   playerController: {fileID: 510466522}
 --- !u!54 &510466524
@@ -979,6 +979,10 @@ PrefabInstance:
     - target: {fileID: 8288303519168780392, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8973060214083636953, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
+      propertyPath: maxVelocity
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
