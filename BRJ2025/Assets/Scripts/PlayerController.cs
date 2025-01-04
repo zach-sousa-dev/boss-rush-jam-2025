@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
             // add a force to the rigidbody based on the WASD * speed NOTE: ForceMode.Force takes into consideration the mass, use ForceMode.Acceleration if you want to ignore it
             rb.AddForce(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized * speed, ForceMode.Force);
         }
-        Debug.Log(rb.velocity.magnitude);
+        //Debug.Log(rb.velocity.magnitude);
     }
 
     /// <summary>
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        Debug.Log(rb.velocity);
     }
 
     // Draw Gizmos
