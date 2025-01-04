@@ -49,11 +49,6 @@ public class PlayerController : MonoBehaviour
         return maxVelocity;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(rb.velocity);
-    }
-
     // Draw Gizmos
     private void OnDrawGizmosSelected()
     {

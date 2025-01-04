@@ -12,6 +12,7 @@ public class CharacterSpin : MonoBehaviour
     public float maxVelocity;   //  NOTE: This should be the same as on PlayerController.cs, and also should prob not be coded in right here and instead referenced in some way
     [SerializeField] private Rigidbody rb;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private float tiltSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,7 @@ public class CharacterSpin : MonoBehaviour
         float velocityMappedValue = Mathf.InverseLerp(0, Mathf.Pow(maxVelocity, 2), rb.velocity.sqrMagnitude);
         float angleMappedValue = Mathf.Lerp(0, 30, velocityMappedValue);
         // apply tilt
-        tiltTransform.rotation = Quaternion.AngleAxis(angleMappedValue, Vector3.Cross(Vector3.up, rb.velocity.normalized));
+        tiltTransform.rotation = Quaternion.Lerp(tiltTransform.rotation, Quaternion.AngleAxis(angleMappedValue, Vector3.Cross(Vector3.up, rb.velocity.normalized)), tiltSpeed * Time.deltaTime);
 
         // spin
         spinTransform.RotateAround(tiltTransform.position, tiltTransform.up, GetDegrees(spinSpeed));
