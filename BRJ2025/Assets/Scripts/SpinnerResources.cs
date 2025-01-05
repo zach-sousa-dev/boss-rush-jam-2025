@@ -17,6 +17,9 @@ public class SpinnerResources : MonoBehaviour
     [Header("Gameplay")]
     [SerializeField] private float spin;
     [SerializeField] private float wear;
+    [SerializeField] private float desiredSpin;
+    [SerializeField] private float spinLerpRate = 0.5f;
+    [SerializeField] private float spinDeathThreshold = 1.0f;
 
     [Header("References")]
     public CharacterSpin spinner;
@@ -33,32 +36,55 @@ public class SpinnerResources : MonoBehaviour
     {
         //Debug.Log($"Rotational Energy: {GetRotationalEnergy()}J");
 
+        spin = Mathf.Lerp(spin, desiredSpin, spinLerpRate * Time.deltaTime);
+
         spinner.spinSpeed = spin;
+
+        if (spin <= spinDeathThreshold) {
+            SpinDie();
+        }
     }
 
-    public void Hit(Vector3 velocity, float mass, float rotationalEnergy, float spinBonusMultiplier = 1, float wearBonusMultiplier = 1) {
-        Vector3 relativeVelocity = rb.velocity - velocity;
-        float reducedMass = (rb.mass * mass) / (rb.mass + mass);
-        float relativeEnergy = 0.5f * relativeVelocity.sqrMagnitude * reducedMass;
+    public void Hit(float kineticEnergy, float rotationalEnergy, float spinBonusMultiplier = 1, float wearBonusMultiplier = 1) {
+        float netEnergy = (GetKineticEnergy() - kineticEnergy) * KEScaling;
 
-        float netRotationalEnergy = (GetRotationalEnergy() - rotationalEnergy) * KESpinScaling;
+        float netRotationalEnergy = (GetRotationalEnergy() - rotationalEnergy) * KESpinScaling * -1;//invert to make faster speed stronger
 
-        Debug.Log($"Energy: {relativeEnergy}J, Rotational Energy: {netRotationalEnergy}J");
+        Debug.Log($"Energy: {netEnergy}J, Rotational Energy: {netRotationalEnergy}J");
 
-        float baseDamage = relativeEnergy * KEScaling + netRotationalEnergy;
+        float baseDamage = Mathf.Max(netEnergy + netRotationalEnergy, 0);
 
         float spinDamage = baseDamage * spinDamageScale;
         float wearDamage = baseDamage * wearDamageScale;
 
         Debug.Log($"Damage: {baseDamage}, Spin Damage: {spinDamage}, Wear Damage: {wearDamage}");
+
+        desiredSpin = Mathf.Max(0, desiredSpin - spinDamage);
+        wear -= wearDamage;
+
+        if (wear <= 0) {
+            WearDie();
+        }
     }
 
     public float GetSpin() {
         return spin;
     }
 
-    private float GetRotationalEnergy() {
+    public float GetRotationalEnergy() {
         //Debug.Log($"Inertia: {Utils.ConeInertiaMoment(rb.mass, radius)}");
         return 0.5f * Utils.ConeInertiaMoment(rb.mass, radius) * Mathf.Pow(spin * Mathf.Deg2Rad, 2);
+    }
+
+    public float GetKineticEnergy() {
+        return 0.5f * rb.mass * rb.velocity.sqrMagnitude;
+    }
+
+    private void SpinDie() {
+        //Destroy(gameObject);
+    }
+
+    private void WearDie() {
+        Destroy(gameObject);
     }
 }

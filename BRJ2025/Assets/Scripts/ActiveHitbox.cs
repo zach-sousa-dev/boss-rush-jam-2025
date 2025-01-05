@@ -7,8 +7,6 @@ public class ActiveHitbox : MonoBehaviour
     public float spinBonusMultiplier = 1;
     public float wearBonusMultiplier = 1;
 
-    public string test;
-
     [SerializeField] private SpinnerResources spinner;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +20,8 @@ public class ActiveHitbox : MonoBehaviour
         
     }
 
-    public void Attack() {
-        Debug.Log("Test");
+    public void Attack(SpinnerResources enemy) {
+        //Debug.Log($"Current Velocity: {spinner.rb.velocity}");
+        enemy.Hit(spinner.GetKineticEnergy(), spinner.GetRotationalEnergy(), spinBonusMultiplier, wearBonusMultiplier);
     }
 }
