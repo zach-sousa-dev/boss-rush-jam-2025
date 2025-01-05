@@ -18,25 +18,32 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private bool displayRelativeToOwnerPosition;
     [SerializeField] private GameObject owner;
     [SerializeField] private Vector2 positionalOffset;  //  this is only used if showing relative to owner position, otherwise the rect transform's position will be used
+    [SerializeField] private float visualChangeRate;
 
     [Header("Math Config")]
     [SerializeField] private float maxValue;
     [SerializeField] private float minValue;
     [SerializeField] private float currentValue;
+    [SerializeField] private float maxWidth;
 
     /// <summary>
     /// Used to preview the in-game look of the health bar
     /// </summary>
     private void OnValidate()
     {
-        UpdateHealthBar();
+        //UpdateHealthBar();
+    }
+
+    private void Awake()
+    {
+        maxWidth = gameObject.GetComponent<RectTransform>().sizeDelta.x;
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateHealthBar();
-        activeHealthBarMask.GetComponent<RectTransform>().sizeDelta = new Vector2(gameObject.GetComponent<RectTransform>().sizeDelta.x / 2, activeHealthBarMask.GetComponent<RectTransform>().sizeDelta.y);
+        //activeHealthBarMask.GetComponent<RectTransform>().sizeDelta = new Vector2(gameObject.GetComponent<RectTransform>().sizeDelta.x / 2, activeHealthBarMask.GetComponent<RectTransform>().sizeDelta.y);
     }
 
     /// <summary>
@@ -44,8 +51,12 @@ public class HealthBar : MonoBehaviour
     /// </summary>
     private void UpdateHealthBar()
     {
+        if(!owner)  // default to 0 if the owner has expired
+        {
+            currentValue = 0;
+        }
 
-        // active health bar width = remap based on values and dead health bar width
+        activeHealthBarMask.GetComponent<RectTransform>().sizeDelta = Vector2.Lerp(activeHealthBarMask.GetComponent<RectTransform>().sizeDelta, new Vector2(Utils.Map(currentValue, minValue, maxValue, 0, maxWidth), activeHealthBarMask.GetComponent<RectTransform>().sizeDelta.y), Time.deltaTime * visualChangeRate);
 
         activeHealthBar.color = activeHealthColor;
         deadHealthBar.color = deadHealthColor;

@@ -24,16 +24,20 @@ public class SpinnerResources : MonoBehaviour
     [Header("References")]
     public CharacterSpin spinner;
     public Rigidbody rb;
+    [SerializeField] private HealthBar healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        healthBar.SetMaxValue(wear);    //  there isn't currently a max wear constant set, so I'm just using the inital value as the 'max'
+        healthBar.SetMinValue(0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        healthBar.SetCurrentValue(wear);
+
         //Debug.Log($"Rotational Energy: {GetRotationalEnergy()}J");
 
         spin = Mathf.Lerp(spin, desiredSpin, spinLerpRate * Time.deltaTime);
@@ -81,7 +85,7 @@ public class SpinnerResources : MonoBehaviour
     }
 
     private void SpinDie() {
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     private void WearDie() {
