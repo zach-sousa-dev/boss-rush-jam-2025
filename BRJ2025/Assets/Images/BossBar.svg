@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1787.2101"
+   height="737.57104"
+   viewBox="0 0 472.866 195.14901"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="BossBar.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   inkscape:export-filename="BossBarInfill.png"
+   inkscape:export-xdpi="4.1650224"
+   inkscape:export-ydpi="4.1650224"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.52248527"
+     inkscape:cx="667.00445"
+     inkscape:cy="312.92748"
+     inkscape:window-width="3440"
+     inkscape:window-height="1369"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(182.04884)">
+    <path
+       id="path2"
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke-width:9.43074;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0.1"
+       d="m 213.39305,14.994132 c -108.2806,2.77405 -216.5611954,5.54837 -324.8418,8.32226 -2.08501,0.97055 -2.18124,4.39899 -0.17187,5.50196 22.990211,23.06126 45.989478,46.11352 68.937498,69.21679 -1.709235,14.096968 -3.426879,28.194248 -5.130859,42.291018 8.593952,8.49171 17.246681,16.93332 26.226562,25.01562 6.782014,-1.03418 13.497336,-2.44819 20.2343752,-3.73242 5.4020366,1.94769 10.4285598,4.82502 15.8668218,6.66657 3.187534,0.37977 6.399106,-0.0166 9.597229,0.11224 24.512528,-0.13589 49.025902,-0.26667 73.537902,-0.40576 8.007811,-4.73503 16.015621,-9.47005 24.023441,-14.20508 1.7622,3.6832 3.97119,7.52678 7.74023,9.44922 8.1144,-8.22699 16.02527,-16.65302 23.9707,-25.04102 0.45481,-1.53035 0.1101,-3.147 0.28647,-4.71314 0.40712,-18.74601 0.81423,-37.492018 1.22135,-56.238028 21.38312,-19.89855 42.94861,-39.60933 63.7539,-60.11719 -0.96065,-1.89086 -3.35649,-2.17433 -5.25195,-2.12304 z"
+       sodipodi:nodetypes="ccccccccccccccccc" />
+    <path
+       id="rect1"
+       style="display:none;fill:#ffffff;stroke-width:9.44443;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0.1"
+       d="M -182.04884,0 -60.892305,97.574498 -70.898602,153.67423 -30.484478,195.149 -9.2957631,184.93592 12.864773,195.149 H 54.38416 95.903546 L 118.0641,184.93592 139.2528,195.149 179.66691,153.67423 169.66063,97.574498 290.81716,0 H 95.903546 54.38416 12.864773 Z m 401.0867,17.372548 -64.33106,59.170959 c -0.46178,20.545194 -0.89435,41.094733 -1.32352,61.642023 -7.81913,7.82919 -15.63859,15.65835 -23.45768,23.48757 l -5.18754,-10.85156 -26.367978,15.56273 H 16.493974 c -5.01921,-2.31201 -10.0385932,-4.62425 -15.0578053,-6.93626 -7.0198097,1.34821 -14.0387427,2.70139 -21.0583797,4.05145 -8.098631,-8.1084 -16.197422,-16.21699 -24.29606,-24.32539 l 5.961784,-41.788579 C -59.949551,73.038427 -83.978363,50.657556 -107.5837,27.906686 c -0.74023,-0.70522 -1.48018,-1.410097 -2.22035,-2.11532 z"
+       inkscape:export-filename="BossBarOutline.png"
+       inkscape:export-xdpi="4.1650224"
+       inkscape:export-ydpi="4.1650224" />
+  </g>
+</svg>
