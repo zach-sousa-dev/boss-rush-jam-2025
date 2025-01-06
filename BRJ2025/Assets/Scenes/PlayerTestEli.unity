@@ -228,6 +228,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 740611947}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &163596161 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6742237952165830037, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
+  m_PrefabInstance: {fileID: 265954517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68fe79518ec2772458a812af0a7ea2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &265954517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -280,10 +291,22 @@ PrefabInstance:
       propertyPath: antialiasingMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6207452063437856721, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 1265079754}
+    - target: {fileID: 6207452063437856721, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
+      propertyPath: uiCam
+      value: 
+      objectReference: {fileID: 803031869}
     - target: {fileID: 6299891201843239198, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
       propertyPath: m_Name
       value: Player View
       objectReference: {fileID: 0}
+    - target: {fileID: 6742237952165830037, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 355987201}
     - target: {fileID: 7733022366256891401, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -472,7 +495,18 @@ MonoBehaviour:
   spinDeathThreshold: 1
   spinner: {fileID: 355987205}
   rb: {fileID: 355987206}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 163596161}
+--- !u!114 &356326220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6207452063437856721, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
+  m_PrefabInstance: {fileID: 265954517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68fe79518ec2772458a812af0a7ea2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &429368722
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +1004,7 @@ MonoBehaviour:
   spinDeathThreshold: 1
   spinner: {fileID: 1265079758}
   rb: {fileID: 1265079759}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 356326220}
 --- !u!114 &1265079762
 MonoBehaviour:
   m_ObjectHideFlags: 0

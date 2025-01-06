@@ -30,14 +30,14 @@ public class SpinnerResources : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //healthBar.SetMaxValue(wear);    //  there isn't currently a max wear constant set, so I'm just using the inital value as the 'max'
-        //healthBar.SetMinValue(0);
+        healthBar.SetMaxValue(wear);    //  there isn't currently a max wear constant set, so I'm just using the inital value as the 'max'
+        healthBar.SetMinValue(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //healthBar.SetCurrentValue(wear);
+        healthBar.SetCurrentValue(wear);
 
         //Debug.Log($"Rotational Energy: {GetRotationalEnergy()}J");
 
@@ -51,9 +51,9 @@ public class SpinnerResources : MonoBehaviour
     }
 
     public void Hit(Vector3 velocity, float mass, Vector3 position, float spinSpeed, float spinBonusMultiplier = 1, float wearBonusMultiplier = 1) {
-        Vector3 attackerNormalVelocity = velocity * Mathf.Cos(Mathf.Deg2Rad * Vector3.Angle(position - rb.position, velocity));
+        Vector3 attackerNormalVelocity = velocity * Mathf.Cos(Mathf.Deg2Rad * Vector3.Angle(rb.position - position, velocity));
 
-        Vector3 defenderNormalVelocity = rb.velocity * Mathf.Cos(Mathf.Deg2Rad * Vector3.Angle(rb.position - position, rb.velocity));
+        Vector3 defenderNormalVelocity = rb.velocity * Mathf.Cos(Mathf.Deg2Rad * Vector3.Angle(position - rb.position, rb.velocity));
 
         Vector3 totalMomentum = attackerNormalVelocity * mass + defenderNormalVelocity * rb.mass;
 
