@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpinnerResources : MonoBehaviour
 {
-    const float momentumDamageScale = 0.005f;
+    const float momentumDamageScale = 0.00005f;
     const float wearDamageScale = 1.0f;
     const float spinDamageScale = 0.1f;
 
@@ -51,9 +51,9 @@ public class SpinnerResources : MonoBehaviour
     }
 
     public void Hit(Vector3 velocity, float mass, Vector3 position, float spinSpeed, float spinBonusMultiplier = 1, float wearBonusMultiplier = 1) {
-        Vector3 attackerNormalVelocity = velocity * Mathf.Cos(Mathf.Deg2Rad * Vector3.Angle(velocity, position - rb.position));
+        Vector3 attackerNormalVelocity = velocity * Mathf.Cos(Mathf.Deg2Rad * Vector3.Angle(position - rb.position, velocity));
 
-        Vector3 defenderNormalVelocity = rb.velocity * Mathf.Cos(Mathf.Deg2Rad * Vector3.Angle(velocity, rb.position - position));
+        Vector3 defenderNormalVelocity = rb.velocity * Mathf.Cos(Mathf.Deg2Rad * Vector3.Angle(rb.position - position, rb.velocity));
 
         Vector3 totalMomentum = attackerNormalVelocity * mass + defenderNormalVelocity * rb.mass;
 
