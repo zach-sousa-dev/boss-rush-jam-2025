@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hitbox
   - UI Canvas
+  - CollisionNormalFinder
   layers:
   - Default
   - TransparentFX

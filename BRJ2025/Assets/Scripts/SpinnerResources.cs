@@ -34,6 +34,7 @@ public class SpinnerResources : MonoBehaviour
     }
 
     // Update is called once per frame
+
     void Update()
     {
         healthBar.SetCurrentValue(wear);
