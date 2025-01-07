@@ -22,6 +22,6 @@ public class ActiveHitbox : MonoBehaviour
 
     public void Attack(SpinnerResources enemy) {
         //Debug.Log($"Current Velocity: {spinner.rb.velocity}");
-        enemy.Hit(spinner.GetKineticEnergy(), spinner.GetRotationalEnergy(), spinBonusMultiplier, wearBonusMultiplier);
+        enemy.Hit(spinner.rb.velocity, spinner.rb.mass, spinner.rb.position, spinBonusMultiplier, wearBonusMultiplier);
     }
 }

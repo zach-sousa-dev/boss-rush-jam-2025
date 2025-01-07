@@ -228,6 +228,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 740611947}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &163596161 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6742237952165830037, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
+  m_PrefabInstance: {fileID: 265954517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68fe79518ec2772458a812af0a7ea2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &265954517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -280,10 +291,22 @@ PrefabInstance:
       propertyPath: antialiasingMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6207452063437856721, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 1265079754}
+    - target: {fileID: 6207452063437856721, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
+      propertyPath: uiCam
+      value: 
+      objectReference: {fileID: 803031869}
     - target: {fileID: 6299891201843239198, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
       propertyPath: m_Name
       value: Player View
       objectReference: {fileID: 0}
+    - target: {fileID: 6742237952165830037, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 355987201}
     - target: {fileID: 7733022366256891401, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -303,11 +326,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1179576380343131954, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8159202831989151070, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1658112831}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
+--- !u!4 &265954518 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8159202831989151070, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
+  m_PrefabInstance: {fileID: 265954517}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &353231725
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,11 +486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35130eac22d9b0f4e8ab1262441046aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KEScaling: 0.005
-  KESpinScaling: 10
-  wearDamageScale: 1
-  spinDamageScale: 0.1
-  radius: 3
+  wearDamageMultiplier: 1
+  spinDamageMultiplier: 1
   spin: 10
   wear: 100
   desiredSpin: 10
@@ -470,6 +495,18 @@ MonoBehaviour:
   spinDeathThreshold: 1
   spinner: {fileID: 355987205}
   rb: {fileID: 355987206}
+  healthBar: {fileID: 163596161}
+--- !u!114 &356326220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6207452063437856721, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
+  m_PrefabInstance: {fileID: 265954517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68fe79518ec2772458a812af0a7ea2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &429368722
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,11 +884,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
---- !u!224 &804866410 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1179576380343131954, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
-  m_PrefabInstance: {fileID: 265954517}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &854857503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -963,11 +995,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35130eac22d9b0f4e8ab1262441046aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KEScaling: 0.005
-  KESpinScaling: 10
-  wearDamageScale: 0.1
-  spinDamageScale: 1
-  radius: 3
+  wearDamageMultiplier: 1
+  spinDamageMultiplier: 1
   spin: 10
   wear: 100
   desiredSpin: 10
@@ -975,6 +1004,7 @@ MonoBehaviour:
   spinDeathThreshold: 1
   spinner: {fileID: 1265079758}
   rb: {fileID: 1265079759}
+  healthBar: {fileID: 356326220}
 --- !u!114 &1265079762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,7 +1047,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 804866410}
+  m_Father: {fileID: 265954518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

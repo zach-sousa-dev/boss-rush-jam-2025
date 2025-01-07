@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class SpinnerResources : MonoBehaviour
 {
-    [Header("Physics")]
-    [SerializeField] private float KEScaling;
-    [SerializeField] private float KESpinScaling;
+    const float momentumDamageScale = 0.00005f;
+    const float wearDamageScale = 1.0f;
+    const float spinDamageScale = 0.1f;
 
-    [SerializeField] private float wearDamageScale;
-    [SerializeField] private float spinDamageScale;
+    [Header("Physics")]
+    [SerializeField] private float wearDamageMultiplier = 1.0f;
+    [SerializeField] private float spinDamageMultiplier = 1.0f;
 
     //[SerializeField] private float height;
-    [SerializeField] private float radius;
+    //[SerializeField] private float radius;
 
     [Header("Gameplay")]
     [SerializeField] private float spin;
@@ -50,39 +51,41 @@ public class SpinnerResources : MonoBehaviour
         }
     }
 
-    public void Hit(float kineticEnergy, float rotationalEnergy, float spinBonusMultiplier = 1, float wearBonusMultiplier = 1) {
-        float netEnergy = (GetKineticEnergy() - kineticEnergy) * KEScaling;
+    public void Hit(Vector3 velocity, float mass, Vector3 position, float spinSpeed, float spinBonusMultiplier = 1, float wearBonusMultiplier = 1) {
+        Vector3 attackerNormalVelocity = velocity * Mathf.Cos(Mathf.Deg2Rad * Vector3.Angle(rb.position - position, velocity));
 
-        float netRotationalEnergy = (GetRotationalEnergy() - rotationalEnergy) * KESpinScaling * -1;//invert to make faster speed stronger
+        Vector3 defenderNormalVelocity = rb.velocity * Mathf.Cos(Mathf.Deg2Rad * Vector3.Angle(position - rb.position, rb.velocity));
 
-        Debug.Log($"Energy: {netEnergy}J, Rotational Energy: {netRotationalEnergy}J");
+        Vector3 totalMomentum = attackerNormalVelocity * mass + defenderNormalVelocity * rb.mass;
 
-        float baseDamage = Mathf.Max(netEnergy + netRotationalEnergy, 0);
+        Vector3 netVelocity = attackerNormalVelocity - defenderNormalVelocity;
 
-        float spinDamage = baseDamage * spinDamageScale;
-        float wearDamage = baseDamage * wearDamageScale;
+        Vector3 finalVelocity = (totalMomentum + mass * netVelocity) / (mass + rb.mass);
 
-        Debug.Log($"Damage: {baseDamage}, Spin Damage: {spinDamage}, Wear Damage: {wearDamage}");
+        Vector3 deltaMomentum = rb.mass * (finalVelocity - rb.velocity);
+
+        // |p1| / (|p1| + |p2|)
+        float momentumRatio = (attackerNormalVelocity * mass).magnitude / ((attackerNormalVelocity * mass).magnitude + (defenderNormalVelocity * mass).magnitude);
+
+        float spinRatio = spin / (spin + spinSpeed);
+
+        float baseDamage = deltaMomentum.magnitude * momentumDamageScale * (1.0f/momentumRatio) * spinRatio;
+
+        float spinDamage = baseDamage * spinDamageScale * spinBonusMultiplier * spinDamageMultiplier;
+        float wearDamage = baseDamage * wearDamageScale * wearBonusMultiplier * wearDamageMultiplier;
+
+        Debug.Log($"{gameObject.name} [Damage: {baseDamage}, Spin Damage: {spinDamage}, Wear Damage: {wearDamage}]");
 
         desiredSpin = Mathf.Max(0, desiredSpin - spinDamage);
         wear -= wearDamage;
 
-        if (wear <= 0) {
-            WearDie();
-        }
+        //if (wear <= 0) {
+        //    WearDie();
+        //}
     }
 
     public float GetSpin() {
         return spin;
-    }
-
-    public float GetRotationalEnergy() {
-        //Debug.Log($"Inertia: {Utils.ConeInertiaMoment(rb.mass, radius)}");
-        return 0.5f * Utils.ConeInertiaMoment(rb.mass, radius) * Mathf.Pow(spin * Mathf.Deg2Rad, 2);
-    }
-
-    public float GetKineticEnergy() {
-        return 0.5f * rb.mass * rb.velocity.sqrMagnitude;
     }
 
     private void SpinDie() {
