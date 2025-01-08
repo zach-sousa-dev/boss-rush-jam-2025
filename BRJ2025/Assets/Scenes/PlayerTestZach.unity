@@ -246,7 +246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &252450196
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -699,7 +699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &721763785
 Transform:
   m_ObjectHideFlags: 0
@@ -1142,11 +1142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35130eac22d9b0f4e8ab1262441046aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KEScaling: 0.005
-  KESpinScaling: 10
-  wearDamageScale: 0.1
-  spinDamageScale: 1
-  radius: 3
+  wearDamageMultiplier: 1
+  spinDamageMultiplier: 1
   spin: 10
   wear: 100
   desiredSpin: 10
@@ -1428,11 +1425,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35130eac22d9b0f4e8ab1262441046aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KEScaling: 0.005
-  KESpinScaling: 10
-  wearDamageScale: 1
-  spinDamageScale: 0.1
-  radius: 3
+  wearDamageMultiplier: 1
+  spinDamageMultiplier: 1
   spin: 10
   wear: 100
   desiredSpin: 10
