@@ -5,7 +5,7 @@ using UnityEngine;
 public class HitboxController : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision) {
-        if (!collision.collider.CompareTag("Hitbox")) {
+        if (!collision.collider.CompareTag("Hitbox") || !collision.collider.CompareTag("CollisionNormalFinder")) {
             return;
         }
 

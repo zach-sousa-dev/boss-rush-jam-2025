@@ -5,14 +5,27 @@ using UnityEngine;
 public class CollisionNormalFinder : MonoBehaviour
 {
     private Vector3 axis;
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
-        if (!(collision.GetContact(0).thisCollider.transform.gameObject.tag == "CollisionNormalFinder"))
+        if (!(collision.GetContact(0).thisCollider.transform.gameObject.tag == "CollisionNormalFinder"))    //  if not the bottom of the spinner collided
         {
             return;
         }
         axis = collision.GetContact(0).normal;
-        Debug.Log("axis");
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        List<ContactPoint> cpList = new List<ContactPoint>();
+        collision.GetContacts(cpList);
+        foreach (ContactPoint contacts in cpList)
+        {
+            if((collision.GetContact(0).thisCollider.transform.gameObject.tag == "CollisionNormalFinder"))  //  if the bottom of the spinner is colliding with something
+            {
+                return;
+            }
+        }
+        axis = Vector3.up;
     }
 
     /// <summary>
