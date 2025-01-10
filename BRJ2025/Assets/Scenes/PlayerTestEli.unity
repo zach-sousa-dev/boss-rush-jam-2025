@@ -496,6 +496,19 @@ MonoBehaviour:
   spinner: {fileID: 355987205}
   rb: {fileID: 355987206}
   healthBar: {fileID: 163596161}
+--- !u!114 &355987214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355987201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb112b332c3df448803a97a2b2986fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSpawner: {fileID: 7536199448162943135, guid: 2098bdd81a1aa6343b0ab1e3129e542a, type: 3}
 --- !u!114 &356326220 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6207452063437856721, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
@@ -677,6 +690,9 @@ PrefabInstance:
       addedObject: {fileID: 1265079761}
     - targetCorrespondingSourceObject: {fileID: 176645495880593183, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
       insertIndex: 6
+      addedObject: {fileID: 1265079767}
+    - targetCorrespondingSourceObject: {fileID: 176645495880593183, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
+      insertIndex: 7
       addedObject: {fileID: 1265079762}
     - targetCorrespondingSourceObject: {fileID: 2101919733805924902, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
       insertIndex: -1
@@ -953,10 +969,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 176645495880593183, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 355987209}
+      insertIndex: 2
+      addedObject: {fileID: 355987214}
     - targetCorrespondingSourceObject: {fileID: 176645495880593183, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
       insertIndex: 6
+      addedObject: {fileID: 355987209}
+    - targetCorrespondingSourceObject: {fileID: 176645495880593183, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
+      insertIndex: 7
       addedObject: {fileID: 355987208}
     - targetCorrespondingSourceObject: {fileID: 2101919733805924902, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
       insertIndex: -1
@@ -1017,6 +1036,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7828ab93c71e7034cbf0b20521b08dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1265079767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265079754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb112b332c3df448803a97a2b2986fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSpawner: {fileID: 7536199448162943135, guid: 2098bdd81a1aa6343b0ab1e3129e542a, type: 3}
 --- !u!1 &1658112830
 GameObject:
   m_ObjectHideFlags: 0
