@@ -26,7 +26,7 @@ public class ParticlePlayer : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
-        GameObject spark = Instantiate(particleSpawner, collision.GetContact(0).point, Quaternion.Euler(/*collision.GetContact(0).normal*/Vector3.up));//fix rotation
+        GameObject spark = Instantiate(particleSpawner, collision.GetContact(0).point, Quaternion.AngleAxis(-90, gameObject.transform.up) * Quaternion.LookRotation(collision.GetContact(0).normal, gameObject.transform.up));//fix rotation
         Destroy(spark, 5);
         //TODO: implement object pooling
 

@@ -509,6 +509,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSpawner: {fileID: 7536199448162943135, guid: 2098bdd81a1aa6343b0ab1e3129e542a, type: 3}
+--- !u!114 &355987218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355987201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6933b228d9320c40b3fdbdf6b45b2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &356326220 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6207452063437856721, guid: f2ff3b30a8c6c8d4884317e783345aa2, type: 3}
@@ -681,6 +693,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8973060214083636953, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
+      propertyPath: collisionNormalFinder
+      value: 
+      objectReference: {fileID: 1265079771}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -689,10 +705,13 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 1265079761}
     - targetCorrespondingSourceObject: {fileID: 176645495880593183, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
-      insertIndex: 6
-      addedObject: {fileID: 1265079767}
+      insertIndex: 4
+      addedObject: {fileID: 1265079771}
     - targetCorrespondingSourceObject: {fileID: 176645495880593183, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
       insertIndex: 7
+      addedObject: {fileID: 1265079767}
+    - targetCorrespondingSourceObject: {fileID: 176645495880593183, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
+      insertIndex: 8
       addedObject: {fileID: 1265079762}
     - targetCorrespondingSourceObject: {fileID: 2101919733805924902, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
       insertIndex: -1
@@ -964,6 +983,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8973060214083636953, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
+      propertyPath: collisionNormalFinder
+      value: 
+      objectReference: {fileID: 355987218}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -972,10 +995,13 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 355987214}
     - targetCorrespondingSourceObject: {fileID: 176645495880593183, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
-      insertIndex: 6
-      addedObject: {fileID: 355987209}
+      insertIndex: 4
+      addedObject: {fileID: 355987218}
     - targetCorrespondingSourceObject: {fileID: 176645495880593183, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
       insertIndex: 7
+      addedObject: {fileID: 355987209}
+    - targetCorrespondingSourceObject: {fileID: 176645495880593183, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
+      insertIndex: 8
       addedObject: {fileID: 355987208}
     - targetCorrespondingSourceObject: {fileID: 2101919733805924902, guid: 79c78fbbd0b839e4bbac495d379efa59, type: 3}
       insertIndex: -1
@@ -1049,6 +1075,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSpawner: {fileID: 7536199448162943135, guid: 2098bdd81a1aa6343b0ab1e3129e542a, type: 3}
+--- !u!114 &1265079771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265079754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6933b228d9320c40b3fdbdf6b45b2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1658112830
 GameObject:
   m_ObjectHideFlags: 0
