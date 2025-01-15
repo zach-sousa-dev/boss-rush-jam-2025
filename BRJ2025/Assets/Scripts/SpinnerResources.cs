@@ -11,6 +11,8 @@ public class SpinnerResources : MonoBehaviour
     [Header("Physics")]
     [SerializeField] private float wearDamageMultiplier = 1.0f;
     [SerializeField] private float spinDamageMultiplier = 1.0f;
+    [SerializeField] private float topOffset;   //  use this to represent the extra Y position to be added as offset to the game object position in order to represent the top-most edge/face
+    private Vector3 topCenterPos;
 
     //[SerializeField] private float height;
     //[SerializeField] private float radius;
@@ -38,6 +40,8 @@ public class SpinnerResources : MonoBehaviour
 
     void Update()
     {
+        topCenterPos = new Vector3(transform.position.x, transform.position.y + topOffset, transform.position.z);
+
         healthBar.SetCurrentValue(wear);
 
         //Debug.Log($"Rotational Energy: {GetRotationalEnergy()}J");
@@ -94,5 +98,26 @@ public class SpinnerResources : MonoBehaviour
 
     private void WearDie() {
         Destroy(gameObject);
+    }
+
+    /// <summary>
+    /// This gets the position of the spinner with y being the y + the topOffset.
+    /// The center of the top face of the spinner, as configured in the editor.
+    /// Do note that when doing the dmg calculation, to account for slopes, you will
+    /// need to decrement the vertical position by the vertical difference between
+    /// the spinners.
+    /// </summary>
+    /// <returns>
+    /// The top center position
+    /// </returns>
+    public Vector3 GetTopCenterPos()
+    {
+        return topCenterPos;
+    }
+
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y + topOffset, transform.position.z), 0.5f);
     }
 }

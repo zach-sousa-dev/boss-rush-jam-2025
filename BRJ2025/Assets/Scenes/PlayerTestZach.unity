@@ -416,6 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wearDamageMultiplier: 0
   spinDamageMultiplier: 0
+  topOffset: 6
   spin: 10
   wear: 100
   desiredSpin: 10
@@ -1559,6 +1560,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 232054646443045224}
+    - target: {fileID: 5244908405090993052, guid: 024ffbab66eadb5408daee968a27e19c, type: 3}
+      propertyPath: topOffset
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5480720872296430561, guid: 024ffbab66eadb5408daee968a27e19c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -83.6
